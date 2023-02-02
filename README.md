@@ -1,2 +1,2 @@
 # Job-Description-Generator-using-ChatGPT-API
-Job description generator with help of chatgpt API
+Job description generator with help of ChatGPT API
