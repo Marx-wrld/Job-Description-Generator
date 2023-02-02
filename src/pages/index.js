@@ -29,7 +29,6 @@ export default function Home() {
             in Seconds
           </p>
         </div>
-        <Dashboard/>
         </main>
     </>
   );
