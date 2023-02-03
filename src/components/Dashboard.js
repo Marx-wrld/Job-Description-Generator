@@ -19,13 +19,16 @@ export default function Dashboard() {
   
   return (
     <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    {/* Using tailwindcss to create a grid of two columns, one for use input and opne for the output*/}
       <div className="grid gap-y-12 md:grid-cols-2 md:gap-x-12 ">
         <div className="">
+            {/*Creating a form element and defining its input fields*/}
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="flex flex-col">
               <label className="sr-only" htmlFor="jobTitle">
                 Job Title
               </label>
+              {/*The job title field is the only required field in the form to generate the description*/}
               <input
                 type="text"
                 className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
@@ -42,6 +45,7 @@ export default function Dashboard() {
                 Industry
               </label>
               <input
+              //we use a textarea for the user to enter any relevant info or keywords for the job description
                 value={industry}
                 onChange={(e) => setIndustry(e.target.value)}
                 className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
@@ -77,6 +81,7 @@ export default function Dashboard() {
                 name="tone"
                 id="tone"
               >
+                {/* select field for the job description which is optional for the user depending on the tone of the job description he/she wants*/}
                 <option value="default">Select Tone (Optional)</option>
                 <option value="casual">Casual</option>
                 <option value="friendly">Friendly</option>
@@ -98,7 +103,8 @@ export default function Dashboard() {
                 id="words"
               />
             </div>
-
+            
+            {/*Button to trigger the generation of the job description*/}
             <button
               className={`bg-blue-600 w-full hover:bg-blue-700 text-white font-bold mt-6 py-2 px-4 rounded
                 ${
