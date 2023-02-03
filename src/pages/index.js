@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import { Inter } from '@next/font/google';
 
-const inter = Inter({ subsets: ['latin'], weight: ["100", "300", "400", "500", "700", "900"] });
+const inter = Inter({ 
+  subsets: ['latin'], 
+  weight: ["100", "300", "400", "500", "700", "900"] });
 
 export default function Home() {
   return (
@@ -26,7 +28,7 @@ export default function Home() {
               {" "}
               Job Descriptions{" "}
             </span>
-            in Seconds
+            for your Company
           </p>
         </div>
         </main>
