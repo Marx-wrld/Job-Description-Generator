@@ -16,7 +16,30 @@ export default function Dashboard() {
   const [isGenerating, setIsGenerating] = useState(false); //Tracks whether the request is being processed after the user hits the Generate button
   const [isCopied, setIsCopied] = useState(false); //Follows whether the user has copied the job description output successfully
 
-  
+  //handleSubmit function which prevents the page from reloading using e.preventDefault() when the form is submitted.
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  //Updating the isGenerating state to true using setIsGenerating(true)
+    setIsGenerating(true);
+    const res = await fetch("/api/returnJobDescription", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    //we again use the fetch API to send a POST request to our NextJS API route (returnJobDescription) with the user input values in the requests body
+      body: JSON.stringify({
+        jobTitle,
+        industry,
+        keyWords,
+        tone,
+        numWords,
+      }),
+    });
+    setIsGenerating(false);
+    const data = await res.json();
+    setJobDescription(data.jobDescription.trim());
+  };
+
   return (
     <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
     {/* Using tailwindcss to create a grid of two columns, one for use input and opne for the output*/}
