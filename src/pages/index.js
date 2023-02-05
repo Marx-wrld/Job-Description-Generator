@@ -2,9 +2,11 @@ import Head from 'next/head';
 import { Inter } from '@next/font/google';
 import Dashboard from "@/components/Dashboard";
 
-const inter = Inter({ 
+const inter = Inter(
+{ 
   subsets: ['latin'], 
-  weight: ["100", "300", "400", "500", "700", "900"] });
+  weight: ["100", "300", "400", "500", "700", "900"] 
+});
 
 export default function Home() {
   return (
