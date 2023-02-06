@@ -16,6 +16,12 @@ export default function Dashboard() {
   const [isGenerating, setIsGenerating] = useState(false); //Tracks whether the request is being processed after the user hits the Generate button
   const [isCopied, setIsCopied] = useState(false); //Follows whether the user has copied the job description output successfully
 
+  //handleCopy function to copy the jobDescription state to the clipboard
+  const handleCopy = () => {
+    navigator.clipboard.writeText(jobDescription);
+    setIsCopied(true);
+  };
+
   //handleSubmit function which prevents the page from reloading using e.preventDefault() when the form is submitted.
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +41,7 @@ export default function Dashboard() {
         numWords,
       }),
     });
-    setIsGenerating(false);
+    setIsGenerating(false); //setting the isGenerating state back to false then converting the resposne to JSON format and set it to the jobDescription state
     const data = await res.json();
     setJobDescription(data.jobDescription.trim());
   };
@@ -46,7 +52,8 @@ export default function Dashboard() {
       <div className="grid gap-y-12 md:grid-cols-2 md:gap-x-12 ">
         <div className="">
             {/*Creating a form element and defining its input fields*/}
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form onSubmit={(e) => handleSubmit(e)}> 
+          {/* updating the form with the onSubmit event and passing the handleSubmit function to it*/}
             <div className="flex flex-col">
               <label className="sr-only" htmlFor="jobTitle">
                 Job Title
