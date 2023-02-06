@@ -41,14 +41,14 @@ export default function Dashboard() {
         numWords,
       }),
     });
-    setIsGenerating(false); //setting the isGenerating state back to false then converting the resposne to JSON format and set it to the jobDescription state
+    setIsGenerating(false); //setting the isGenerating state back to false then converting the response to JSON format and setting it to the jobDescription state
     const data = await res.json();
     setJobDescription(data.jobDescription.trim());
   };
 
   return (
     <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    {/* Using tailwindcss to create a grid of two columns, one for use input and opne for the output*/}
+    {/* Using tailwindcss to create a grid of two columns, one for user input and one for the output*/}
       <div className="grid gap-y-12 md:grid-cols-2 md:gap-x-12 ">
         <div className="">
             {/*Creating a form element and defining its input fields*/}
