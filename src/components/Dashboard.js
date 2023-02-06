@@ -145,7 +145,7 @@ export default function Dashboard() {
               type="submit"
               disabled={isGenerating || jobTitle === ""}
             >
-              {isGenerating ? "Generating..." : "Generate Job Description"}
+              {isGenerating ? "Generating..." : "Generate"}
             </button>
           </form>
         </div>
