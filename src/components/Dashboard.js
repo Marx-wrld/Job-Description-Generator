@@ -169,7 +169,7 @@ export default function Dashboard() {
               className="block w-full rounded-md bg-white border border-gray-400 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 placeholder-gray-500 my-2 text-gray-900"
             />
             <button
-              onClick={handleCopy}
+              onClick={() => {}}
               className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               type="submit"
               disabled={jobDescription === ""}
